@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Virtual Standup</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/newnote">New Note</a></li>
+                <li><a href="/discuss">Discuss</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-container">
+        <h1>New Virtual Stand-up Meeting Note</h1>
+        <p class="lead">Use this form to enter your daily meeting notes</p>
+    </div>
+
+    {% if message.length > 0 %}
+    <div class="alert alert-danger alert-error">
+        {{ message }}
+    </div>
+    {% endif %}
+    <form class="form-horizontal" action="newnote" method="post">
+        <fieldset>
+            <!-- Form Note -->
+            <legend>Enter a Meeting Note</legend>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label for="memberName" class="col-md-4 control-label">Name</label>
+                <div class="col-md-4">
+                    <select name="memberName" id="memberName" class="form-control">
+                        <option value="None">(Select Name)</option>
+                        <option value="Mark">Mark</option>
+                        <option value="David">David</option>
+                        <option value="John">John</option>
+                        <option value="Mary">Mary</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label for="project" class="col-md-4 control-label">Project Name</label>
+                <div class="col-md-4">
+                    <select name="project" id="project" class="form-control">
+                        <option value="None">(Select Project)</option>
+                        <option value="matrix">Matrix APi development</option>
+                        <option value="trinity">Trinity UI development</option>
+                        <option value="morpheus">Morpheus Data Integration</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Text Area -->
+            <div class="form-group">
+                <label for="workYesterday" class="col-md-4 control-label">What did you do yesterday</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="workYesterday" id="workYesterday">Yesterday</textarea>
+                </div>
+            </div>
+            <!-- Text Area -->
+            <div class="form-group">
+                <label for="workToday" class="col-md-4 control-label">What will you do today</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="workToday" id="workToday">Today</textarea>
+                </div>
+            </div>
+            <!-- Text Area -->
+            <div class="form-group">
+                <label for="impediment" class="col-md-4 control-label">Any Impediment</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="impediment" id="impediment">None</textarea>
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label for="btnSaveNote" class="col-md-4 control-label">Save Note</label>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" name="btnSaveNote" id="btnSaveNote">Save</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

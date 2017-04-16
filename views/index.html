@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Virtual Stand-up</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/newnote">New Note</a></li>
+                <li><a href="/discuss">Discuss</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-container">
+        <h1>New Virtual Stand-up Meeting Note</h1>
+        <p class="lead">This is the list of the last dozen meeting notes that was entered in.</p>
+    </div>
+
+    <div class="container">
+        <form action="/" method="post">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                    <select name="memberName" id="memberName" class="form-control">
+                        <option value="None">(Show all members)</option>
+                        <option value="Mark">Mark</option>
+                        <option value="David">David</option>
+                        <option value="John">John</option>
+                        <option value="Mary">Mary</option>
+                        <option value="Bob">Bob</option>
+                    </select>
+                </div>
+                <div class="col-md-8 column">
+                    <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary">Filter Notes</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <br />
+
+    <div class="container">
+        <div class="col-md-12 column list-group">
+            {% for note in notes %}
+            <div class="list-group-item">
+                <div>Note from <em><strong>{{ note.memberName }}</strong></em> on: {{ note.createdOn.toDateString() }}
+                    - for project: <strong>{{ note.project }}</strong></div>
+                <div><strong>Work Yesterday: </strong>{{ note.workYesterday}}</div>
+                <div><strong>Work Today: </strong>{{ note.workToday}}</div>
+                <div><strong>Impediment: </strong>{{ note.impediment}}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
