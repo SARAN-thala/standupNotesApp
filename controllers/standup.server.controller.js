@@ -38,7 +38,7 @@ exports.create = function (req, res) {
 
     // validate now...
     entry.schema.path('memberName').validate(function (value) {
-        return value != 'None';
+        return value !== 'None';
     }, 'You must select a team member name.');
 
     entry.save(function (err) {
