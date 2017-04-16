@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var memberNameValidator = [
     function (val) {
-        return (val.length > 0 && val.toLocaleLowerCase() != 'none')
+        return (val.length > 0 && val.toLocaleLowerCase() !== 'none')
     },
     // Custom error text...
     'Select a valid member name.'];
