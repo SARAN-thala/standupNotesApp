@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 </head>
-<body>
+<body onload="getCookie()">
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -51,12 +51,24 @@
                     </select>
                 </div>
                 <div class="col-md-8 column">
-                    <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary">Filter Notes</button>
+                    <button id="btnFilterNotes" name="btnFilterNotes" class="btn btn-primary" onclick="myFunc()">Filter Notes</button>
                 </div>
             </div>
-
         </form>
     </div>
+
+    <script>
+        function myFunc() {
+            var x = document.getElementById('memberName');
+            var name =  x.options[x.selectedIndex].value;
+            localStorage.setItem("memberName", name);
+        }
+
+        function getCookie() {
+            var x = document.getElementById('memberName');
+            x.value = localStorage.getItem("memberName");
+        }
+    </script>
     <br />
 
     <div class="container">

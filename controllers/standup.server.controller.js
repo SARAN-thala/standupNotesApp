@@ -17,7 +17,7 @@ exports.filterByMemebr = function (req, res) {
 
     query.sort({createdOn: 'desc'});
 
-    if (filter.length > 0) {
+    if(filter !== 'None'){
         query.where({memberName: filter})
     }
 
