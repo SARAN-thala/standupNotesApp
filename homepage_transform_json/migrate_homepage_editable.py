@@ -2,7 +2,7 @@ import json
 import os
 from collections import OrderedDict
 
-base_path = '/Users/saranraj/digital-tw/tw.integration.content'
+base_path = '/Users/saranraj/digital-tw/tw.prod.content'
 content_state = ['draft', 'public']
 relative_path = 'homepage/home_page.json'
 relative_path_new = 'homepage/home_page_editable.json'
