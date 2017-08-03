@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -13,6 +15,8 @@
     "mongoose": "^4.9.4",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
-    "swig": "^1.4.2"
-  }
+    "swig": "^1.4.2",
+    "snyk": "^1.38.0"
+  },
+  "snyk": true
 }
