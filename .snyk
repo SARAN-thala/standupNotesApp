@@ -6,3 +6,6 @@ patch:
   'npm:uglify-js:20151024':
     - swig > uglify-js:
         patched: '2017-08-03T09:59:36.440Z'
+  'npm:debug:20170905':
+    - mongoose > mquery > debug:
+        patched: '2017-09-28T02:12:06.475Z'
